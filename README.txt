@@ -47,8 +47,7 @@ Kohlweiss, M., Wallden, P., Zikas, V. (eds.) PKC 2020. LNCS, vol. 12111, pp. 187
 Springer, Cham (2020). https://doi.org/10.1007/978-3-030-45388-6_7
 
 [2] P. Dartois.: Fast computation of 2-isogenies in dimension 4 and cryptographic628
-applications Cryptology ePrint Archive, Paper 2024/1180, 2024, https://eprint.i629
-acr.org/2024/1180
+applications Cryptology ePrint Archive, Paper 2024/1180, 2024, https://eprint.i629acr.org/2024/1180
 
  [3] Pierrick Dartois, Luciano Maino, Giacomo Pope and Damien Robert, An Algorithmic Approach 
  to (2,2)-isogenies in the Theta Model and Applications to Isogeny-based Cryptography, In Advances 
