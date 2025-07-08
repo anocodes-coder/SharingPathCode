@@ -11,7 +11,14 @@ from theta_structures.Tuple_point import TuplePoint
 from montgomery_isogenies.isogenies_x_only import isogeny_from_scalar_x_only, evaluate_isogeny_x_only, random_isogeny_x_only
 
 
-
+"""
+Given the parameters of the finite field over which we want to define an 
+appropriate supersingular elliptic curve, this function returns torsion 
+point bases and their images under the secret isogeny. These points can later 
+be used to recompute the secret isogeny. In our scheme, they represent the 
+parameters given to the dealer. Through a coding process, he generates shared 
+secrets for the participants.
+"""
 def Sharing_Data_Computation(params):
 	t1=time()
 	print("**************************")
