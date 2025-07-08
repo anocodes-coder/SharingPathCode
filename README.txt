@@ -1,44 +1,45 @@
-The goal of this library is to implement functions that represent the bulk
-of the cost of the secret sharing scheme introduced in the submitted document.
-We aim to compare its computational cost with the running time of the seminal
-isogeny-based threshold scheme proposed by De Feo and Meyer [1]. Specifically,
-this comparison is intended to highlight the efficiency of our technique relative
-to the first threshold scheme relying on isogenies—particularly on
-the class group action combined with Shamir’s secret sharing.
+The goal of this library is to implement functions that account for the majority
+of the computational cost in the secret sharing scheme introduced in the submitted document.
+We aim to compare this cost with the running time of the seminal isogeny-based threshold scheme
+proposed by De Feo and Meyer [1]. Specifically, this comparison is intended to highlight
+the efficiency of our approach relative to the first isogeny-based threshold scheme—
+in particular, the one based on class group action combined with Shamir’s secret sharing.
 
 The cost of the algorithm in [1] is dominated by a class group action computation
-[s]E, where s is a Shamir secret and E an elliptic curve, see [4, Algorithme 3, Line 5].  
-On the other side Line 23 [4, Algorithm 2] that deals with isogeny recompuation of reprsents 
-the main computational cost of our scheme. So, in the comparison focuses on the 
-implementation of the related functions. As explained in the manuscrit the other 
-sub-processes such as the encoding are negligible. However we give a blueprint of how 
-to combine these sub-processes with isogeny computation for the sharing and recovery of a secret.
+of the form [s]E[s]E, where ss is a Shamir secret and EE is an elliptic curve (see [4, Algorithm 3, Line 5]).
+On the other hand, Line 23 of [4, Algorithm 2], which involves isogeny recomputation,
+represents the main computational cost of our scheme. Therefore, the comparison focuses
+on the implementation of these core functions. As explained in the manuscript,
+other sub-processes—such as encoding—are negligible. Nevertheless, we provide a blueprint
+for combining these sub-processes with isogeny computation during the sharing and recovery of a secret.
 
 
-Remark on our table of comparison [4, Table 2]:
-The values given in this table is a result of many execusission of the main functionin the 
-the file secrets_handle.py. We took the average values after many execusission ofthe scripts.
+Remark on our comparison table [4, Table 2]:
+The values presented in this table are the result of multiple executions of the main function
+in the file secrets_handle.py. We took the average values after running the script several times.
 
-Notes on the structure of the library
+Notes on the structure of the library:
+This library relies on functions developed in Dartois's library [1], which itself
+heavily depends on the computations presented in [3]. We adapt their packages to the context of our
+threshold scheme, where key exchange between two parties (e.g., Alice and Bob) is not required,
+and the torsion points are treated as secret parameters.
 
-this library relies on function developped in Dartois's library [1] which itself
-heavily depends on the computations in [3]. We adapt their packages in the context of our
-threshold scheme where key exchange between two parties (e.g., Alice and Bob) is not required
-and the torsion points should be secret parameters.
 
+How to Run the Code?
+Before running secrets_handle.py, you must first run torsion_handle.py, which defines the secret torsion points
+provided to the dealer.
 
-How to run the code
+    > run torsion_handle.py
+        This file is located in the isogeny_computations directory.
 
-Before running the file secrets_handle.py we should run torsion_handle.py that defines the secret torsion points
-given to the dealer.
- 1)  >run torsion_handle.py # This file is in the directory isogeny_computations.
- 2)  >run secrets_handle.py --Sharing_and_Recovering -p=pX # This file is in the main directory.
-In the expression "-p=pX", X representes the size of the prime and is in the set 
-{p128, p288, p434, p503, p610, p640, p751}
+    > run secrets_handle.py --Sharing_and_Recovering -p=pX
+        This file is located in the main directory.
 
-If we want just to display the public data and the private elements given to the dealer we 
-modify the commande 2) as follows
-3)   >run secrets_handle.py --Dealer_Data -p=pX
+In the argument -p=pX, the value X represents the bit-size of the prime and must be one of the following:
+{p128, p288, p434, p503, p610, p640, p751}. If you only want to display the public data and the private 
+elements given to the dealer, modify command (2) as follows:
+
+    > run secrets_handle.py --Dealer_Data -p=pX
  
 
 [1] L. De Feo, M. Meyer.: Threshold schemes from isogeny assumptions. In: Kiayias, A.,652
