@@ -96,11 +96,11 @@ def Sharing_Data_Computation(params):
 
 
 """
-!!! In the input we have the necessary information to recompute a secret isogeny !!!
+!!! In the input, we have the necessary information to recompute a secret isogeny !!!
        + params gives the finite field over which the elliptic curves are defined.
-	   + E1_params contains the initial curve E1 and the torsion points.
-	   + imgA and imgB represent the images of the torsion points.
-	   + EAB is optional in the context of our scheme.
+       + E1_params contains the initial curve E1 and the torsion points.
+       + imgA and imgB represent the images of the torsion points.
+       + EAB is optional in the context of our scheme.
 """
 def Isogeny_Recomputation(params,E1_params,imgA,imgB,EAB=None):
 	t1=time()
