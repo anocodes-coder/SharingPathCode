@@ -100,14 +100,14 @@ def secret_bit_recovery(dic_thresh_sec, n, F2r):
 
 
 """
-In this function we give a formal measurement of the time needed for decoding long or medium size
-codes that fit the framework of our scheme. We follow Table III of 
-N. Tang and Y. S. Han, “A new decoding method for Reed-Solomon codes based on FFT and modular approach,” 
-To measure the timing of decoding. To the best of our knowledge the implementation of the algorithms of Tang and Han
-is not avalaible. This is a formal verification that shows that the cost of the decoding 
-process is negligible in our scheme. As we must in the manuscrit the bulk of our computations 
-is dominated by Line 23 of Algorithm 2, that deals with isogeny computation in higher dimension.
-We mainly focus on the implementation of this algorithms to evaluate the running time of our algoruthms.
+This function provides a formal measurement of the time required to decode medium- or long-length codes 
+that fall within the framework of our scheme. We follow Table III from the paper by N. Tang and Y. S. Han, 
+“A New Decoding Method for Reed–Solomon Codes Based on FFT and Modular Approach,” to measure decoding time.
+To the best of our knowledge, an implementation of Tang and Han’s algorithms is not publicly available. 
+This serves as a formal verification showing that the cost of the decoding process is negligible in our 
+scheme. As mentioned in the manuscript, the majority of the computational workload of our scheme is dominated 
+by Line 23 of Algorithm 2, which involves isogeny computation in higher dimensions. We primarily focus on the 
+implementation of this part of the algorithm to evaluate the runtime of our overall scheme.
 """
 def FMA_decode_time():
     F12 = GF(2**12, name ='x')    
