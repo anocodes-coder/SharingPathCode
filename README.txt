@@ -6,7 +6,7 @@ the efficiency of our approach relative to the first isogeny-based threshold sch
 in particular, the one based on class group action combined with Shamir’s secret sharing.
 
 The cost of the algorithm in [1] is dominated by a class group action computation
-of the form [s]E[s]E, where ss is a Shamir secret and EE is an elliptic curve (see [4, Algorithm 3, Line 5]).
+of the form [s]E, where s is a Shamir secret and E is an elliptic curve (see [4, Algorithm 3, Line 5]).
 On the other hand, Line 23 of [4, Algorithm 2], which involves isogeny recomputation,
 represents the main computational cost of our scheme. Therefore, the comparison focuses
 on the implementation of these core functions. As explained in the manuscript,
@@ -19,10 +19,10 @@ The values presented in this table are the result of multiple executions of the 
 in the file secrets_handle.py. We took the average values after running the script several times.
 
 Notes on the structure of the library:
-This library relies on functions developed in Dartois's library [1], which itself
+This library relies on functions developed in Dartois's library [2], which itself
 heavily depends on the computations presented in [3]. We adapt their packages to the context of our
-threshold scheme, where key exchange between two parties (e.g., Alice and Bob) is not required,
-and the torsion points are treated as secret parameters.
+threshold scheme, where key exchange between two parties is not required, and the torsion points 
+are treated as secret parameters.
 
 
 How to Run the Code?
