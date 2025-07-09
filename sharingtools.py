@@ -6,7 +6,7 @@ from time import time
 
 
 """
-Slicing bits and symbols into blocks
+Slicing bits or symbols into blocks
 """
 def create_blocks(chain, block_size):
     list_block = []
@@ -19,7 +19,7 @@ def create_blocks(chain, block_size):
 
 """
 This function distributes the secret shares to the participants.
-The secrets are define by symbols in a codeword.
+The secrets are defined by symbols in a codeword.
 """
 def secret_symbol_sharing(r, b_chain, n):
 
@@ -39,7 +39,7 @@ def secret_symbol_sharing(r, b_chain, n):
     x_bin = x.vector()
     print(f"The binary representation of {x} is ", x_bin)
 
-    #Representing the bit chain as symbols in F2r
+    #Representing the bit chain as symbols in GF(2^r)
     b_blocks = create_blocks(b_chain, r)
     print(b_blocks)
     symbols = []
@@ -48,7 +48,7 @@ def secret_symbol_sharing(r, b_chain, n):
         #print(bk)
         sym = F2r.Vector(bk)
         symbols.append(sym)
-    print(f"the symbols corresponding to {b_chain} are {symbols}")
+    print(f"The symbols corresponding to {b_chain} are {symbols}")
 
     #At this point we can use an RS code to encode the symbols
     RScode = symbols # to be coded
@@ -64,6 +64,8 @@ def secret_symbol_sharing(r, b_chain, n):
         dic_secrets[index] = sec
         index += 1
     # print(dic_secrets)
+
+    return dic_secrets
 
 """
 Secret bit chain recovery using threshold t. 
@@ -85,7 +87,7 @@ def secret_bit_recovery(dic_thresh_sec, n, F2r):
             error_code.append(erasure)
     #print(error_code)
 
-    "At this point we can use the fficient decoding algorithm of Tang and Han RS to correct the erasures"
+    "At this point, we can use the efficient decoding algorithm of Tang and Han RS to correct the erasures."
     rs_code = error_code # Correction process, to be coded.
     rs_word = rs_code # Decoding process, to be coded.
 
@@ -148,16 +150,18 @@ def FMA_decode_time():
 
 
 """
-Recover the isogeny using corresponding torsion bit chain
-As in the other functions in the package, we compute two torsion bases in E1.
-So the funtion takes two chains corresponding to the bases and their images in E2.
+In the following, we provide a blueprint for recovering a secret isogeny from shared secrets. 
+The function recovers the secret isogeny using corresponding torsion bit chain. As in the other 
+tasks in the library, we compute two torsion bases in E1. So the function takes, as input, two chains 
+corresponding to the bases and their images in E2. The input 'params' characterizes the finite field 
+over which E1 and E2 are defined.
 """
 def recover_shared_isogeny(A_chain, B_chain, E1, E2, params):   
     #We concatenated 4 points given by the bases and their images
     torsion_bitsA = create_blocks(A_chain, 4) 
     torsion_bitsB = create_blocks(B_chain, 4)
 
-    #Recover the torsion points using the inverse of SESS"
+    #Recover the torsion points using the inverse of SESS, the encoding function described in the paper."
     PA    = SESSinv(E1, torsion_bits[0])
     im_PA = SESSinv(E2, torsion_bits[1])
     QA    = SESSinv(E1, torsion_bits[2])    
