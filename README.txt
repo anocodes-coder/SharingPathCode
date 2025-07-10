@@ -1,9 +1,9 @@
 The goal of this library is to implement functions that account for the majority
 of the computational cost in the secret sharing scheme introduced in the submitted document.
-We aim to compare this cost with the running time of the seminal isogeny-based threshold scheme
-proposed by De Feo and Meyer [1]. Specifically, this comparison is intended to highlight
-the efficiency of our approach relative to the first isogeny-based threshold scheme—
-in particular, the one based on class group action combined with Shamir’s secret sharing.
+We aim to compare this cost with the majority of the runtime of the seminal isogeny-based 
+threshold scheme proposed by De Feo and Meyer [1]. Specifically, this comparison is intended 
+to highlight the efficiency of our approach relative to the first isogeny-based threshold 
+scheme, in particular, the one based on class group action combined with Shamir’s secret sharing.
 
 The cost of the algorithm in [1] is dominated by a class group action computation
 of the form [s]E, where s is a Shamir secret and E is an elliptic curve (see [4, Algorithm 3, Line 5]).
@@ -28,11 +28,11 @@ of the main function in the file secrets_handle.py. We took the average values a
 several times.  The idea is to compare the bulk of the computational cost of our algorithm with the running 
 time of the class group computation, which dominates the cost of the algorithms in De Feo and Meyer’s scheme [1]. 
 The performance of their scheme can be inferred from the CSI-FiSh paper, and we directly reported the bulk of 
-this running time in our manuscript [4, Table 2, Row 4]. For more details see [4, Section 6].
+this running time in our manuscript [4, Table 2, Row 4]. For more details, see [4, Section 6].
 
 
 How to Run the Code?
-Before running secrets_handle.py, you must first run torsion_handle.py, which defines the secret torsion points
+Before running secrets_handle.py, first run torsion_handle.py, which defines the secret torsion points
 provided to the dealer.
 
     > run torsion_handle.py
