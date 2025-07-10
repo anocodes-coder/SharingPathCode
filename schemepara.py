@@ -71,7 +71,7 @@ def prime_specific_form(a, b):
         return False
 
 """ 
-Looking for a suitable prime number given the binary degree extension 
+Looking for a suitable prime number given the binary degree extension. 
 """
 def suitable_prime(r):
     if r < 3:
@@ -88,7 +88,7 @@ def suitable_prime(r):
 
 """
 suitable_prime_deepsearch(r) --> return prime p = 2^e3^f-1 with E/Fp^2 and size(p) ~ r2^{r-4}
-With this function we can get p of size 6655 with r = 13, e=298, and f = 4011
+With this function, we can get large p of size 6655 with r = 13, e=298, and f = 4011.
 """
 def suitable_prime_deepsearch(r):
     if r < 4:
@@ -146,7 +146,7 @@ def binrs_code_parameters(max_ext_deg):
     return ls
        
 
-"""RS code and FF parameters given extension degrees and security level"""
+"RS code and finite fields parameters given extension degrees and security level"
 def rs_code_pamameters(max_ext_deg, lsec):
 
     for r in range(2, max_ext_deg+1):
@@ -186,10 +186,6 @@ def code_parameters(n, t):
     return RScodeMinDist 
 
        
-        
-"Values of affected symboles in RS(2^r, d) code extending binary code C+"
-"Following Theorem 7 we consider epsilon > 1 to avoid gamma = 1"
-"triple-extended RS that are MDS codes [2^r+2, 3, 2^r] of Theo 6"
 def epsilon_values(ext_deg):
     #Possible code length gamma*n
     RScodeMinDist = 2**ext_deg
