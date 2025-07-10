@@ -18,20 +18,6 @@ import math as mt
 import sympy as sp
 
 """
-In this file we define function that test the parameters of error-correcting codes
-and the size of the field of definition of the supersingular elliptic curve.
-1)This helped us to do a good choice of codes and to design appropriate strategies 
-for our framework. These test functions are mainly designed to see if particular 
-code such as sub-field codes or extended RS code can fit our framework. We gave a 
-remark about this study in subsection 5.3 of the submitted manuscrit.
-2)For the finite field defining the elliptic curves, functins such as suitable_prime_deepsearch
-give suitable prime of the form p = 2^e3^f - 1. The found primes along with embedding degrees
-for high dimension computation are stored in the file 
-        ~isogeny_computations/GoodPrime_SharingPath_Parameters.txt
-We make a call to these precomputed parameters at the starting of the process.
-"""
-
-"""
 Definition of prerequisites funtions
 """
 
