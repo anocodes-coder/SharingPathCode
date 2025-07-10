@@ -1,3 +1,19 @@
+" **************************************************************************************** "
+# In this file, we define functions that test the parameters of error-correcting            
+# codes and determine the size of the finite field over which a supersingular 
+# elliptic curve is defined. These tests help us make informed choices of codes 
+# and design appropriate strategies for our framework. The test functions are 
+# primarily intended to evaluate whether specific codes—such as subfield codes or 
+# extended Reed–Solomon (RS) codes—are compatible with our framework. We discuss this 
+# study in Remark 5.3 of the submitted manuscript. For the finite field defining the 
+# elliptic curves, functions such as suitable_prime_deepsearch provide suitable primes 
+# of the form p=(2^e)x(3^f)−1. The selected primes, along with the corresponding embedding 
+# degrees for high-dimensional computations, are stored in the file:
+#        ~isogeny_computations/GoodPrime_SharingPath_Parameters.txt
+# We load these precomputed parameters at the beginning of the main function in the file 
+# secrets_handle.py.
+" **************************************************************************************** "
+
 import math as mt
 import sympy as sp
 
